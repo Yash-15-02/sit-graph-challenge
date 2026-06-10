@@ -13,6 +13,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api', graphRoutes);
+app.use('/', graphRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
