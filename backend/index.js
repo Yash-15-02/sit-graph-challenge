@@ -24,7 +24,11 @@ app.get('/', (req, res) => {
   res.send('SIT Graph Challenge API is running.');
 });
 
-// Start Express Server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Start Express Server locally (not on Vercel)
+if (process.env.VERCEL === undefined) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

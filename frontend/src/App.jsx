@@ -12,8 +12,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Backend endpoint from environment variables or default to localhost
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/graph';
+  // Backend endpoint from environment variables or default to localhost in dev / relative path in prod
+  const API_URL = import.meta.env.VITE_API_URL || 
+    (import.meta.env.DEV ? 'http://localhost:3000/api/graph' : '/api/graph');
 
   const handleGraphSubmit = async (edges) => {
     setIsLoading(true);
